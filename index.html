@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>World Time</title>
+    <title>World Time by Aglae Hernandez</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.46/moment-timezone-with-data-1970-2030.min.js"></script>
   </head>
@@ -17,5 +17,25 @@
       </select>
     </form>
   </body>
-  <script src="src/index.js"></script>
+  <script>
+    function alertLocalTime(event) {
+      if (event.target.value.length > 0) {
+        if (event.target.value === "paris") {
+          timeParis = moment().tz("Europe/Paris").format("LLLL");
+          alert(`It is currently ${timeParis} in Paris, France.`);
+        }
+        if (event.target.value === "tokyo") {
+          timeTokyo = moment().tz("Asia/Tokyo").format("LLLL");
+          alert(`It is currently ${timeTokyo} in Tokyo, Japan.`);
+        }
+        if (event.target.value === "sydney") {
+          timeSydney = moment().tz("Australia/Sydney").format("LLLL");
+          alert(`It is currently ${timeSydney} in Sydney, Australia.`);
+        }
+      }
+    }
+
+    let citySelect = document.querySelector("#city");
+    citySelect.addEventListener("change", alertLocalTime);
+  </script>
 </html>
