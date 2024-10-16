@@ -20,6 +20,19 @@ setInterval(function () {
   barcelonaTimeElement.innerHTML = `${barcelonaTime.format(
     `h:mm:ss [<small>]A[</small]`
   )}`;
+
+  let losAngelesElement = document.querySelector("#los-angeles");
+  let losAngelesDateElement = losAngelesElement.querySelector(".date");
+  let losAngelesDate = moment()
+    .tz("America/Los_Angeles")
+    .format("MMMM Do, YYYY");
+  losAngelesDateElement.innerHTML = losAngelesDate;
+
+  let losAngelesTimeElement = losAngelesElement.querySelector(".time");
+  let losAngelesTime = moment().tz("America/Los_Angeles");
+  losAngelesTimeElement.innerHTML = `${losAngelesTime.format(
+    `h:mm:ss [<small>]A[</small]`
+  )}`;
 }, 1000);
 
 function updateCity(event) {
