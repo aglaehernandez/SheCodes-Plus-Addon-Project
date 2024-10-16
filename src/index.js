@@ -17,3 +17,27 @@ function alertLocalTime(event) {
 
 let citySelect = document.querySelector("#city");
 citySelect.addEventListener("change", alertLocalTime);
+
+setInterval(function () {
+  let perthElement = document.querySelector("#perth");
+  let perthDateElement = perthElement.querySelector(".date");
+  let perthDate = moment().tz("Australia/Perth").format("MMMM Do, YYYY");
+  perthDateElement.innerHTML = perthDate;
+
+  let perthTimeElement = perthElement.querySelector(".time");
+  let perthTime = moment().tz("Australia/Perth");
+  perthTimeElement.innerHTML = `${perthTime.format(
+    `h:mm:ss [<small>]A[</small]`
+  )}`;
+
+  let barcelonaElement = document.querySelector("#barcelona");
+  let barcelonaDateElement = barcelonaElement.querySelector(".date");
+  let barcelonaDate = moment().tz("Europe/Madrid").format("MMMM Do, YYYY");
+  barcelonaDateElement.innerHTML = barcelonaDate;
+
+  let barcelonaTimeElement = barcelonaElement.querySelector(".time");
+  let barcelonaTime = moment().tz("Europe/Madrid");
+  barcelonaTimeElement.innerHTML = `${barcelonaTime.format(
+    `h:mm:ss [<small>]A[</small]`
+  )}`;
+}, 1000);
